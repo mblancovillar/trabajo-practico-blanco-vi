@@ -1,17 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trabajo Individual - Visualización de la Información</title>
-  <h2>¿Cómo varía mi consumo calórico a lo largo del tiempo?</h2>
-  <object type="image/svg+xml" data="grafico-linea.svg"></object>
-  <p>
-Este gráfico muestra la evolución de mi consumo calórico diario
-a lo largo de los días registrados.
-</p>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    h2 {
+      margin-top: 40px;
+    }
+
+    .grafico {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    object {
+      width: 90%;
+      max-width: 800px;
+    }
+
+    p {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+  </style>
 </head>
+
 <body>
-<h1>Trabajo Individual - Visualización de la Información<h/1>
+
+  <h1>Visualización de Datos Personales</h1>
+
+  <h2>¿Cómo varía mi consumo calórico a lo largo del tiempo?</h2>
+
+  <div class="grafico">
+    <object type="image/svg+xml" data="grafico-linea.svg"></object>
+  </div>
+
+  <p>
+    Este gráfico muestra la evolución de mi consumo calórico diario a lo largo de los días registrados.
+  </p>
+
 </body>
 </html>
