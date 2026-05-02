@@ -5,110 +5,228 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Análisis de Hábitos - Maximiliano Blanco Villar</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --accent-color: #3498db;
-            --bg-color: #f8f9fa;
-            --text-color: #333;
-            --card-bg: #ffffff;
+            --primary:   #1a2535;
+            --accent:    #e8734a;
+            --accent2:   #4ab5e8;
+            --bg:        #f4f2ee;
+            --card:      #ffffff;
+            --text:      #2a2a2a;
+            --muted:     #767676;
+            --border:    #e2ddd8;
         }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
         }
 
+        /* ── HEADER ───────────────────────────────────── */
         header {
-            background-color: var(--primary-color);
+            background-color: var(--primary);
             color: white;
-            padding: 50px 20px;
+            padding: 70px 20px 60px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
         }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.2rem;
-            letter-spacing: 1px;
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 80% at 20% 50%, rgba(232,115,74,.18) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 60% at 80% 30%, rgba(74,181,232,.15) 0%, transparent 70%);
+            pointer-events: none;
         }
-
-        header p {
-            margin: 10px 0 0;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .metadata {
-            background: #eee;
-            padding: 10px 20px;
-            border-radius: 20px;
+        header .label {
             display: inline-block;
-            font-size: 0.85rem;
-            color: #555;
-            margin-bottom: 30px;
+            font-size: .7rem;
+            font-weight: 500;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            border: 1px solid rgba(232,115,74,.4);
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 18px;
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -.5px;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+        header p {
+            font-size: .95rem;
+            font-weight: 300;
+            opacity: .75;
         }
 
+        /* ── CONTAINER ────────────────────────────────── */
+        .container {
+            max-width: 1020px;
+            margin: 0 auto;
+            padding: 50px 24px 80px;
+        }
+
+        /* ── METADATA PILL ────────────────────────────── */
+        .metadata {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+            font-size: .78rem;
+            color: var(--muted);
+            margin-bottom: 48px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        .metadata span { display: flex; align-items: center; gap: 5px; }
+        .metadata strong { color: var(--text); font-weight: 500; }
+
+        /* ── SECTION CARD ─────────────────────────────── */
         section {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            margin-bottom: 40px;
+            background: var(--card);
+            border-radius: 20px;
+            padding: 44px 48px;
+            margin-bottom: 48px;
+            box-shadow: 0 2px 4px rgba(0,0,0,.04), 0 12px 32px rgba(0,0,0,.06);
+            border: 1px solid var(--border);
+            position: relative;
+        }
+        section::before {
+            content: attr(data-num);
+            position: absolute;
+            top: 44px;
+            right: 48px;
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 700;
+            color: rgba(0,0,0,.04);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .section-tag {
+            font-size: .68rem;
+            font-weight: 500;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 10px;
         }
 
         h2 {
-            color: var(--primary-color);
-            border-left: 6px solid var(--accent-color);
-            padding-left: 20px;
-            margin-top: 0;
-            font-size: 1.6rem;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.15rem, 2.5vw, 1.55rem);
+            color: var(--primary);
+            font-weight: 700;
+            line-height: 1.35;
+            margin-bottom: 18px;
+            padding-bottom: 18px;
+            border-bottom: 2px solid var(--border);
         }
 
         .intro-text {
-            color: #666;
-            margin-bottom: 30px;
+            color: var(--muted);
+            font-size: .92rem;
+            margin-bottom: 28px;
+            max-width: 680px;
         }
 
+        /* ── CHART WRAPPER ────────────────────────────── */
         .grafico-wrapper {
             width: 100%;
-            min-height: 500px; 
-            margin: 20px 0;
+            min-height: 520px;
+            margin: 24px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fafafa;
+            border: 1px solid var(--border);
         }
 
-        .conclusion {
-            background-color: #eef7fe;
-            padding: 25px;
-            border-radius: 10px;
-            border-right: 5px solid var(--accent-color);
-            margin-top: 30px;
-        }
-
-        .conclusion strong {
-            color: var(--primary-color);
+        /* placeholder for RAWGraphs static image */
+        .grafico-wrapper img {
+            width: 100%;
+            height: auto;
             display: block;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
         }
 
+        /* ── INSIGHT BOX ──────────────────────────────── */
+        .insight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin: 28px 0;
+        }
+        .insight-card {
+            background: var(--bg);
+            border-radius: 12px;
+            padding: 16px 18px;
+            border: 1px solid var(--border);
+        }
+        .insight-card .num {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .insight-card .num.blue { color: var(--accent2); }
+        .insight-card p {
+            font-size: .78rem;
+            color: var(--muted);
+            line-height: 1.4;
+        }
+
+        /* ── CONCLUSION ───────────────────────────────── */
+        .conclusion {
+            background: linear-gradient(135deg, #fff8f5 0%, #f5f8ff 100%);
+            padding: 24px 28px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            margin-top: 28px;
+        }
+        .conclusion .tag {
+            font-size: .68rem;
+            font-weight: 600;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        .conclusion p {
+            font-size: .9rem;
+            color: #444;
+            line-height: 1.7;
+        }
+
+        /* ── FOOTER ───────────────────────────────────── */
         footer {
             text-align: center;
             padding: 40px 20px;
-            color: #999;
-            font-size: 0.8rem;
-            border-top: 1px solid #ddd;
+            font-size: .78rem;
+            color: var(--muted);
+            border-top: 1px solid var(--border);
+        }
+        footer strong { color: var(--text); }
+
+        /* ── RESPONSIVE ───────────────────────────────── */
+        @media (max-width: 640px) {
+            section { padding: 28px 22px; }
+            section::before { display: none; }
         }
     </style>
 </head>
@@ -116,48 +234,148 @@
 <body>
 
     <header>
-        <h1>Visualización de Datos Personales</h1>
-        <p>Análisis de ingesta calórica y hábitos diarios</p>
+        <div class="label">Trabajo Práctico · Infovis ECD.2025.B</div>
+        <h1>Visualización de<br>Datos Personales</h1>
+        <p>Análisis de ingesta calórica y hábitos diarios · Abril–Mayo 2026</p>
     </header>
 
     <div class="container">
-        
+
         <div class="metadata">
-            <strong>Autor:</strong> Maximiliano Blanco Villar | 
-            <strong>Cátedra:</strong> Infovis ECD.2025.B | 
-            <strong>Fecha:</strong> 24-04-2026
+            <span><strong>Autor:</strong> Maximiliano Blanco Villar</span>
+            <span><strong>Cátedra:</strong> Infovis ECD.2025.B</span>
+            <span><strong>Período:</strong> 13/04/2026 – 01/05/2026</span>
+            <span><strong>Registros:</strong> 82 ingestas</span>
         </div>
 
-        <section>
+        <!-- ═══════════════════════════════════════════════
+             GRÁFICO 1 — Flourish · Evolución calórica
+        ════════════════════════════════════════════════ -->
+        <section data-num="01">
+            <div class="section-tag">Flourish · Área apilada interactiva</div>
             <h2>¿Cómo varía mi consumo calórico a lo largo del tiempo?</h2>
-            
+
             <p class="intro-text">
-                El siguiente gráfico interactivo detalla la evolución del consumo calórico diario, desglosado por categorías de ingesta, permitiendo identificar patrones temporales y picos de consumo.
+                Evolución del consumo calórico diario desglosado por categoría de ingesta. Permite identificar patrones temporales, picos de consumo y el peso relativo de cada comida en el total diario.
             </p>
 
             <div class="grafico-wrapper">
                 <div class="flourish-embed flourish-chart" data-src="visualisation/28675195">
                     <script src="https://public.flourish.studio/resources/embed.js"></script>
                     <noscript>
-                        <img 
-                            src="https://public.flourish.studio/visualisation/28675195/thumbnail"
-                            style="width: 100%; height: auto;"
-                            alt="chart visualization">
+                        <img src="https://public.flourish.studio/visualisation/28675195/thumbnail"
+                             style="width:100%;height:auto;" alt="Evolución calórica diaria">
                     </noscript>
                 </div>
             </div>
 
             <div class="conclusion">
-                <strong>Análisis de Situación</strong>
-                El consumo calórico diario presenta variaciones a lo largo del período analizado, con un pico significativo hacia la mitad del registro seguido de una disminución progresiva en los días posteriores. Si bien existen fluctuaciones, se observa una leve tendencia descendente hacia el final del período, lo que podría estar asociado a cambios en los hábitos alimenticios.
+                <div class="tag">Análisis de Situación</div>
+                <p>
+                    El consumo calórico diario presenta variaciones a lo largo del período analizado, con un pico significativo hacia la mitad del registro seguido de una disminución progresiva. Se observa una leve tendencia descendente hacia el final del período, posiblemente asociada a ajustes conscientes en los hábitos alimenticios.
+                </p>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════
+             GRÁFICO 2 — RAWGraphs · Alluvial
+        ════════════════════════════════════════════════ -->
+        <section data-num="02">
+            <div class="section-tag">RAWGraphs · Diagrama Alluvial</div>
+            <h2>¿Qué tipo de comida concentra más calorías "no saludables" y en qué rango calórico caen?</h2>
+
+            <p class="intro-text">
+                El diagrama alluvial traza el flujo de calorías desde el tipo de comida, pasando por su calidad nutricional (saludable/no saludable), hasta el rango calórico resultante. El grosor de cada flujo es proporcional al total de calorías acumuladas en esa trayectoria.
+            </p>
+
+            <div class="insight-grid">
+                <div class="insight-card">
+                    <div class="num">3.790</div>
+                    <p>kcal no saludables acumuladas en <strong>Almuerzos</strong> — la categoría más crítica</p>
+                </div>
+                <div class="insight-card">
+                    <div class="num">3.250</div>
+                    <p>kcal no saludables en <strong>Cenas</strong>, mayormente en rango Alto y Muy Alto</p>
+                </div>
+                <div class="insight-card">
+                    <div class="num blue">100%</div>
+                    <p>de los <strong>Snacks saludables</strong> caen en rango Bajo — el único grupo consistente</p>
+                </div>
+                <div class="insight-card">
+                    <div class="num blue">80%</div>
+                    <p>de los Almuerzos saludables se concentran en rango <strong>Alto</strong> (600–900 kcal)</p>
+                </div>
+            </div>
+
+            <!-- 
+                INSTRUCCIONES PARA INTEGRAR EL GRÁFICO:
+                Opción A — RAWGraphs exportado como SVG/PNG: reemplazá el <img> por tu archivo.
+                Opción B — Si usás un iframe de RAWGraphs online, reemplazá el <img> por:
+                <iframe src="TU_URL_RAWGRAPHS" width="100%" height="520" frameborder="0"></iframe>
+            -->
+            <div class="grafico-wrapper" style="min-height:420px; display:flex; align-items:center; justify-content:center;">
+                <!-- REEMPLAZAR CON EL EMBED O IMAGEN DE RAWGRAPHS -->
+                <img src="alluvial_rawgraphs.png" alt="Diagrama Alluvial — Tipo de comida → Saludable → Rango Calórico"
+                     onerror="this.parentElement.innerHTML='<p style=\'color:#aaa;font-size:.85rem;text-align:center;\'>[ Insertar aquí el gráfico exportado de RAWGraphs ]</p>'">
+            </div>
+
+            <div class="conclusion">
+                <div class="tag">Análisis de Situación</div>
+                <p>
+                    El diagrama revela que <strong>Almuerzo y Cena concentran juntos el 73% de las calorías no saludables</strong> del período, y que la mayoría de esas ingestas caen directamente en los rangos Alto (600–900 kcal) y Muy Alto (900+ kcal). En contraste, Desayuno, Merienda y Snack muestran un perfil más controlado: cuando son saludables, casi siempre quedan en rango Bajo o Medio. El flujo hacia "Muy Alto" proviene exclusivamente de Almuerzo (almuerzos de 950–1100 kcal) y Cena (cenas de 1100 kcal el sábado 18/04). Esto sugiere que el mayor margen de mejora no está en los snacks o desayunos, sino en moderar las comidas principales del mediodía y la noche.
+                </p>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════
+             GRÁFICO 3 — DataWrapper (placeholder)
+        ════════════════════════════════════════════════ -->
+        <section data-num="03">
+            <div class="section-tag">DataWrapper · Scatter Plot</div>
+            <h2>¿Los días que entreno y mi estado de ánimo influyen en el total de calorías consumidas?</h2>
+
+            <p class="intro-text">
+                Cada punto representa un día del período. El eje vertical muestra las calorías totales del día, el color indica el estado de ánimo predominante y el tamaño del punto refleja si hubo entrenamiento o no.
+            </p>
+
+            <div class="grafico-wrapper" style="min-height:480px; display:flex; align-items:center; justify-content:center;">
+                <!-- REEMPLAZAR CON EL EMBED DE DATAWRAPPER -->
+                <p style="color:#aaa;font-size:.85rem;text-align:center;">[ Insertar aquí el embed de DataWrapper ]</p>
+            </div>
+
+            <div class="conclusion">
+                <div class="tag">Análisis de Situación</div>
+                <p>[ Completar con el análisis una vez generado el gráfico en DataWrapper ]</p>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════
+             GRÁFICO 4 — Tableau / PowerBI (placeholder)
+        ════════════════════════════════════════════════ -->
+        <section data-num="04">
+            <div class="section-tag">Tableau · Heatmap temporal</div>
+            <h2>¿A qué horas del día consumo más calorías y cómo cambia según el tipo de entrenamiento?</h2>
+
+            <p class="intro-text">
+                Mapa de calor que cruza la franja horaria de cada ingesta con el tipo de entrenamiento realizado ese día. La intensidad del color revela los momentos del día con mayor carga calórica según el contexto de actividad física.
+            </p>
+
+            <div class="grafico-wrapper" style="min-height:480px; display:flex; align-items:center; justify-content:center;">
+                <!-- REEMPLAZAR CON EL EMBED DE TABLEAU -->
+                <p style="color:#aaa;font-size:.85rem;text-align:center;">[ Insertar aquí el embed de Tableau ]</p>
+            </div>
+
+            <div class="conclusion">
+                <div class="tag">Análisis de Situación</div>
+                <p>[ Completar con el análisis una vez generado el gráfico en Tableau ]</p>
             </div>
         </section>
 
     </div>
 
     <footer>
-        Instituto Tecnológico de Buenos Aires (ITBA) <br>
-        Maestría en Ciencia de Datos - Visualización de la Información
+        <strong>Instituto Tecnológico de Buenos Aires (ITBA)</strong><br>
+        Maestría en Ciencia de Datos · Visualización de la Información · 2025.B
     </footer>
 
 </body>
