@@ -162,6 +162,13 @@
             height: auto;
             display: block;
         }
+        .grafico-img {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
 
         /* ── INSIGHT BOX ──────────────────────────────── */
         .insight-grid {
@@ -282,30 +289,11 @@
         ════════════════════════════════════════════════ -->
         <section data-num="02">
             <div class="section-tag">RAWGraphs · Diagrama Alluvial</div>
-            <h2>¿Qué tipo de comida concentra más calorías "no saludables" y en qué rango calórico caen?</h2>
+            <h2>¿Cómo se distribuye mi ingesta calórica según el tipo de comida y si fue saludable?</h2>
 
             <p class="intro-text">
                 El diagrama alluvial traza el flujo de calorías desde el tipo de comida, pasando por su calidad nutricional (saludable/no saludable), hasta el rango calórico resultante. El grosor de cada flujo es proporcional al total de calorías acumuladas en esa trayectoria.
             </p>
-
-            <div class="insight-grid">
-                <div class="insight-card">
-                    <div class="num">3.790</div>
-                    <p>kcal no saludables acumuladas en <strong>Almuerzos</strong> — la categoría más crítica</p>
-                </div>
-                <div class="insight-card">
-                    <div class="num">3.250</div>
-                    <p>kcal no saludables en <strong>Cenas</strong>, mayormente en rango Alto y Muy Alto</p>
-                </div>
-                <div class="insight-card">
-                    <div class="num blue">100%</div>
-                    <p>de los <strong>Snacks saludables</strong> caen en rango Bajo — el único grupo consistente</p>
-                </div>
-                <div class="insight-card">
-                    <div class="num blue">80%</div>
-                    <p>de los Almuerzos saludables se concentran en rango <strong>Alto</strong> (600–900 kcal)</p>
-                </div>
-            </div>
 
             <!-- 
                 INSTRUCCIONES PARA INTEGRAR EL GRÁFICO:
@@ -315,17 +303,27 @@
             -->
             <div class="grafico-wrapper" style="min-height:420px; display:flex; align-items:center; justify-content:center;">
                 <!-- REEMPLAZAR CON EL EMBED O IMAGEN DE RAWGRAPHS -->
-                <img src="https://github.com/mblancovillar/trabajo-practico-blanco-vi/alluvial-calorias.svg" 
-         alt="Diagrama Alluvial — Tipo de comida → Saludable → Rango Calórico" 
-         style="width: 100%; max-width: 900px; height: auto;">
+                <img src="alluvial-calorias.svg"
+     alt="Diagrama Alluvial — Tipo de comida → Saludable → Rango Calórico"
+     class="grafico-img">
             </div>
 
             <div class="conclusion">
-                <div class="tag">Análisis de Situación</div>
-                <p>
-                    El diagrama revela que <strong>Almuerzo y Cena concentran juntos el 73% de las calorías no saludables</strong> del período, y que la mayoría de esas ingestas caen directamente en los rangos Alto (600–900 kcal) y Muy Alto (900+ kcal). En contraste, Desayuno, Merienda y Snack muestran un perfil más controlado: cuando son saludables, casi siempre quedan en rango Bajo o Medio. El flujo hacia "Muy Alto" proviene exclusivamente de Almuerzo (almuerzos de 950–1100 kcal) y Cena (cenas de 1100 kcal el sábado 18/04). Esto sugiere que el mayor margen de mejora no está en los snacks o desayunos, sino en moderar las comidas principales del mediodía y la noche.
-                </p>
-            </div>
+    <div class="tag">Análisis de Situación</div>
+    <p>
+        El diagrama alluvial permite observar cómo se distribuye el volumen calórico desde el tipo de comida hacia su clasificación como saludable o no saludable, y finalmente hacia distintos rangos calóricos.
+        Se identifica que las comidas principales, especialmente el almuerzo y la cena, concentran la mayor parte del flujo calórico total.
+    </p>
+    <p>
+        También se observa que una parte importante de las calorías proviene de comidas clasificadas como saludables. Esto indica que una comida saludable no necesariamente implica un bajo aporte calórico, ya que pueden aparecer registros en rangos altos o muy altos.
+    </p>
+    <p>
+        Por otro lado, los snacks, meriendas y desayunos presentan flujos más reducidos, por lo que no parecen ser los principales responsables del volumen calórico total. El mayor margen de mejora se encuentra en controlar las porciones y composición de las comidas principales.
+    </p>
+    <p>
+        Es importante aclarar que el ancho de los flujos representa el volumen calórico acumulado y no la cantidad de registros individuales.
+    </p>
+</div>
         </section>
 
         <!-- ═══════════════════════════════════════════════
