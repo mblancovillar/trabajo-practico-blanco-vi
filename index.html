@@ -5,24 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Análisis de Hábitos - Maximiliano Blanco Villar</title>
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
+        /* ═══════════════════════════════════════════════════════
+           VARIABLES Y RESET
+        ═══════════════════════════════════════════════════════ */
         :root {
-            --primary:   #1a2535;
-            --accent:    #e8734a;
-            --accent2:   #4ab5e8;
-            --bg:        #f4f2ee;
-            --card:      #ffffff;
-            --text:      #2a2a2a;
-            --muted:     #767676;
-            --border:    #e2ddd8;
+            --primary: #1a2535;
+            --accent: #e8734a;
+            --accent2: #4ab5e8;
+            --bg: #f4f2ee;
+            --card: #ffffff;
+            --text: #2a2a2a;
+            --muted: #767676;
+            --border: #e2ddd8;
         }
 
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
+        /* ═══════════════════════════════════════════════════════
+           ESTILOS GLOBALES
+        ═══════════════════════════════════════════════════════ */
         body {
             font-family: 'DM Sans', sans-serif;
             background-color: var(--bg);
@@ -30,7 +43,9 @@
             line-height: 1.7;
         }
 
-        /* ── HEADER ───────────────────────────────────── */
+        /* ═══════════════════════════════════════════════════════
+           HEADER
+        ═══════════════════════════════════════════════════════ */
         header {
             background-color: var(--primary);
             color: white;
@@ -39,15 +54,17 @@
             position: relative;
             overflow: hidden;
         }
+
         header::before {
             content: '';
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(ellipse 60% 80% at 20% 50%, rgba(232,115,74,.18) 0%, transparent 70%),
-                radial-gradient(ellipse 50% 60% at 80% 30%, rgba(74,181,232,.15) 0%, transparent 70%);
+                radial-gradient(ellipse 60% 80% at 20% 50%, rgba(232, 115, 74, .18) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 60% at 80% 30%, rgba(74, 181, 232, .15) 0%, transparent 70%);
             pointer-events: none;
         }
+
         header .label {
             display: inline-block;
             font-size: .7rem;
@@ -55,11 +72,12 @@
             letter-spacing: .2em;
             text-transform: uppercase;
             color: var(--accent);
-            border: 1px solid rgba(232,115,74,.4);
+            border: 1px solid rgba(232, 115, 74, .4);
             padding: 4px 14px;
             border-radius: 20px;
             margin-bottom: 18px;
         }
+
         header h1 {
             font-family: 'Playfair Display', serif;
             font-size: clamp(1.8rem, 4vw, 3rem);
@@ -68,20 +86,25 @@
             line-height: 1.2;
             margin-bottom: 12px;
         }
+
         header p {
             font-size: .95rem;
             font-weight: 300;
             opacity: .75;
         }
 
-        /* ── CONTAINER ────────────────────────────────── */
+        /* ═══════════════════════════════════════════════════════
+           CONTENEDOR PRINCIPAL
+        ═══════════════════════════════════════════════════════ */
         .container {
             max-width: 1020px;
             margin: 0 auto;
             padding: 50px 24px 80px;
         }
 
-        /* ── METADATA PILL ────────────────────────────── */
+        /* ═══════════════════════════════════════════════════════
+           METADATA
+        ═══════════════════════════════════════════════════════ */
         .metadata {
             display: flex;
             flex-wrap: wrap;
@@ -92,19 +115,31 @@
             padding-bottom: 20px;
             border-bottom: 1px solid var(--border);
         }
-        .metadata span { display: flex; align-items: center; gap: 5px; }
-        .metadata strong { color: var(--text); font-weight: 500; }
 
-        /* ── SECTION CARD ─────────────────────────────── */
+        .metadata span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .metadata strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           SECCIONES
+        ═══════════════════════════════════════════════════════ */
         section {
             background: var(--card);
             border-radius: 20px;
             padding: 44px 48px;
             margin-bottom: 48px;
-            box-shadow: 0 2px 4px rgba(0,0,0,.04), 0 12px 32px rgba(0,0,0,.06);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .04), 0 12px 32px rgba(0, 0, 0, .06);
             border: 1px solid var(--border);
             position: relative;
         }
+
         section::before {
             content: attr(data-num);
             position: absolute;
@@ -113,7 +148,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 5rem;
             font-weight: 700;
-            color: rgba(0,0,0,.04);
+            color: rgba(0, 0, 0, .04);
             line-height: 1;
             pointer-events: none;
         }
@@ -145,27 +180,26 @@
             max-width: 680px;
         }
 
-        /* ── CHART WRAPPER ────────────────────────────── */
+        /* ═══════════════════════════════════════════════════════
+           GRÁFICOS
+        ═══════════════════════════════════════════════════════ */
         .grafico-wrapper {
             width: 100%;
             min-height: 520px;
             margin: 24px 0;
             border-radius: 12px;
-        
             background: #ffffff;
-        
             border: 2px solid #d6d1cc;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-        
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
             overflow: visible;
         }
 
-        /* placeholder for RAWGraphs static image */
         .grafico-wrapper img {
             width: 100%;
             height: auto;
             display: block;
         }
+
         .grafico-img {
             width: 100%;
             max-width: 900px;
@@ -174,7 +208,9 @@
             margin: 0 auto;
         }
 
-        /* ── CONCLUSION ───────────────────────────────── */
+        /* ═══════════════════════════════════════════════════════
+           CONCLUSIONES
+        ═══════════════════════════════════════════════════════ */
         .conclusion {
             background: linear-gradient(135deg, #fff8f5 0%, #f5f8ff 100%);
             padding: 24px 28px;
@@ -182,6 +218,7 @@
             border-left: 4px solid var(--accent);
             margin-top: 28px;
         }
+
         .conclusion .tag {
             font-size: .68rem;
             font-weight: 600;
@@ -190,13 +227,21 @@
             color: var(--accent);
             margin-bottom: 8px;
         }
+
         .conclusion p {
             font-size: .9rem;
             color: #444;
             line-height: 1.7;
+            margin-bottom: 12px;
         }
 
-        /* ── FOOTER ───────────────────────────────────── */
+        .conclusion p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           FOOTER
+        ═══════════════════════════════════════════════════════ */
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -204,26 +249,42 @@
             color: var(--muted);
             border-top: 1px solid var(--border);
         }
-        footer strong { color: var(--text); }
 
-        /* ── RESPONSIVE ───────────────────────────────── */
+        footer strong {
+            color: var(--text);
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           RESPONSIVE
+        ═══════════════════════════════════════════════════════ */
         @media (max-width: 640px) {
-            section { padding: 28px 22px; }
-            section::before { display: none; }
+            section {
+                padding: 28px 22px;
+            }
+
+            section::before {
+                display: none;
+            }
         }
     </style>
 </head>
 
 <body>
-
+    <!-- ═══════════════════════════════════════════════════════
+         HEADER
+    ═══════════════════════════════════════════════════════ -->
     <header>
         <div class="label">Trabajo Práctico · Infovis ECD.2025.B</div>
         <h1>Visualización de<br>Datos Personales</h1>
         <p>Análisis de ingesta calórica y hábitos diarios · Abril–Mayo 2026</p>
     </header>
 
+    <!-- ═══════════════════════════════════════════════════════
+         CONTENIDO PRINCIPAL
+    ═══════════════════════════════════════════════════════ -->
     <div class="container">
 
+        <!-- METADATA -->
         <div class="metadata">
             <span><strong>Autor:</strong> Maximiliano Blanco Villar</span>
             <span><strong>Cátedra:</strong> Infovis ECD.2025.B</span>
@@ -231,9 +292,9 @@
             <span><strong>Registros:</strong> 82 ingestas</span>
         </div>
 
-        <!-- ═══════════════════════════════════════════════
-             GRÁFICO 1 — Flourish · Evolución calórica
-        ════════════════════════════════════════════════ -->
+        <!-- ═══════════════════════════════════════════════════════
+             SECCIÓN 1: Evolución calórica (Flourish)
+        ═══════════════════════════════════════════════════════ -->
         <section data-num="01">
             <div class="section-tag">Flourish · Área apilada interactiva</div>
             <h2>¿Cómo varía mi consumo calórico a lo largo del tiempo?</h2>
@@ -247,7 +308,8 @@
                     <script src="https://public.flourish.studio/resources/embed.js"></script>
                     <noscript>
                         <img src="https://public.flourish.studio/visualisation/28675195/thumbnail"
-                             style="width:100%;height:auto;" alt="Evolución calórica diaria">
+                             style="width:100%;height:auto;"
+                             alt="Evolución calórica diaria">
                     </noscript>
                 </div>
             </div>
@@ -255,107 +317,98 @@
             <div class="conclusion">
                 <div class="tag">Análisis de Situación</div>
                 <p>
-                    El consumo calórico diario presenta variaciones a lo largo del período analizado, con un pico significativo hacia la mitad del registro seguido de una disminución progresiva. Se observa una leve tendencia descendente hacia el final del período, posiblemente asociada a ajustes conscientes en los hábitos alimenticios.
+                    El consumo calórico diario presenta variaciones a lo largo del período analizado, con un pico significativo hacia la mitad del registro seguido de una disminución progresiva.
                 </p>
             </div>
         </section>
 
-        <!-- ═══════════════════════════════════════════════
-             GRÁFICO 2 — RAWGraphs · Alluvial
-        ════════════════════════════════════════════════ -->
+        <!-- ═══════════════════════════════════════════════════════
+             SECCIÓN 2: Diagrama Alluvial (RAWGraphs)
+        ═══════════════════════════════════════════════════════ -->
         <section data-num="02">
             <div class="section-tag">RAWGraphs · Diagrama Alluvial</div>
             <h2>¿Cómo se distribuye mi ingesta calórica según el tipo de comida y si fue saludable?</h2>
 
             <p class="intro-text">
-                El diagrama alluvial traza el flujo de calorías desde el tipo de comida, pasando por su calidad nutricional (saludable/no saludable), hasta el rango calórico resultante. El grosor de cada flujo es proporcional al total de calorías acumuladas en esa trayectoria.
+                El diagrama alluvial traza el flujo de calorías desde el tipo de comida, pasando por su calidad nutricional (saludable/no saludable), hasta el rango calórico resultante. El grosor de cada flujo representa el volumen calórico acumulado.
             </p>
 
-            <!-- 
-                INSTRUCCIONES PARA INTEGRAR EL GRÁFICO:
-                Opción A — RAWGraphs exportado como SVG/PNG: reemplazá el <img> por tu archivo.
-                Opción B — Si usás un iframe de RAWGraphs online, reemplazá el <img> por:
-                <iframe src="TU_URL_RAWGRAPHS" width="100%" height="520" frameborder="0"></iframe>
-            -->
             <div class="grafico-wrapper" style="min-height:420px; display:flex; align-items:center; justify-content:center;">
-                <!-- REEMPLAZAR CON EL EMBED O IMAGEN DE RAWGRAPHS -->
                 <img src="alluvial-calorias.svg"
-     alt="Diagrama Alluvial — Tipo de comida → Saludable → Rango Calórico"
-     class="grafico-img">
+                     alt="Diagrama Alluvial — Tipo de comida → Saludable → Rango Calórico"
+                     class="grafico-img">
             </div>
 
             <div class="conclusion">
-    <div class="tag">Análisis de Situación</div>
-    <p>
-        El diagrama alluvial permite observar cómo se distribuye el volumen calórico desde el tipo de comida hacia su clasificación como saludable o no saludable, y finalmente hacia distintos rangos calóricos.
-        Se identifica que las comidas principales, especialmente el almuerzo y la cena, concentran la mayor parte del flujo calórico total.
-    </p>
-    <p>
-        También se observa que una parte importante de las calorías proviene de comidas clasificadas como saludables. Esto indica que una comida saludable no necesariamente implica un bajo aporte calórico, ya que pueden aparecer registros en rangos altos o muy altos.
-    </p>
-    <p>
-        Por otro lado, los snacks, meriendas y desayunos presentan flujos más reducidos, por lo que no parecen ser los principales responsables del volumen calórico total. El mayor margen de mejora se encuentra en controlar las porciones y composición de las comidas principales.
-    </p>
-    <p>
-        Es importante aclarar que el ancho de los flujos representa el volumen calórico acumulado y no la cantidad de registros individuales.
-    </p>
-</div>
+                <div class="tag">Análisis de Situación</div>
+                <p>
+                    El diagrama alluvial permite observar cómo se distribuye el volumen calórico desde el tipo de comida hacia su clasificación como saludable o no saludable, y finalmente hacia distintos rangos calóricos.
+                </p>
+                <p>
+                    Se identifica que las comidas principales, especialmente el almuerzo y la cena, concentran la mayor parte del flujo calórico total.
+                </p>
+                <p>
+                    También se observa que una parte importante de las calorías proviene de comidas clasificadas como saludables. Esto indica que una comida saludable no necesariamente implica un bajo aporte calórico.
+                </p>
+                <p>
+                    Por otro lado, los snacks, meriendas y desayunos presentan flujos más reducidos, por lo que no parecen ser los principales responsables del volumen calórico total. El mayor margen de mejora se identifica en la porción de comidas principales.
+                </p>
+                <p>
+                    Es importante aclarar que el ancho de los flujos representa el volumen calórico acumulado y no la cantidad de registros individuales.
+                </p>
+            </div>
         </section>
 
-        <!-- ═══════════════════════════════════════════════
-             GRÁFICO 3 — DataWrapper (placeholder)
-        ════════════════════════════════════════════════ -->
+        <!-- ═══════════════════════════════════════════════════════
+             SECCIÓN 3: Scatter Plot (DataWrapper)
+        ═══════════════════════════════════════════════════════ -->
         <section data-num="03">
             <div class="section-tag">DataWrapper · Scatter Plot</div>
             <h2>¿Los días que entreno y mi estado de ánimo influyen en el total de calorías consumidas?</h2>
 
             <p class="intro-text">
-                Cada punto representa un día. El eje vertical muestra el consumo calórico total diario, el color indica el estado de ánimo predominante y la forma del punto refleja si hubo entrenamiento (●) o no (+).
+                Cada punto representa un día. El eje vertical muestra el consumo calórico total diario, el color indica el estado de ánimo predominante y la forma del punto refleja si hubo entrenamiento.
             </p>
-            
-            <div style="min-height:531px" id="datawrapper-vis-Yd10A"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/Yd10A/embed.js" charset="utf-8" data-target="#datawrapper-vis-Yd10A"></script><noscript><img src="https://datawrapper.dwcdn.net/Yd10A/full.png" alt="Diagrama de dispersión" /></noscript></div>
-            
+
+            <div class="grafico-wrapper">
+            <div style="min-height:531px" id="datawrapper-vis-Yd10A">
+                <script type="text/javascript" defer src="https://datawrapper.dwcdn.net/Yd10A/embed.js" charset="utf-8" data-target="#datawrapper-vis-Yd10A"></script>
+            </div>
+            </div>
+                
+
             <div class="conclusion">
-    <div class="tag">Análisis de Situación</div>
-    <p>
-        El gráfico de dispersión permite analizar la relación entre el entrenamiento, 
-        el estado de ánimo y el consumo calórico diario. Cada punto representa un día 
-        completo, revelando la variabilidad del comportamiento a lo largo del período.
-    </p>
-    <p>
-        El hallazgo más notable es que los dos días con estado de ánimo negativo (Malo) 
-        presentan comportamientos opuestos: el valor máximo del período (3.170 cal el 16/04) 
-        y un valor cercano al mínimo (1.624 cal el 01/05). Esto sugiere que el estado de 
-        ánimo negativo no produce un patrón único, sino que puede asociarse tanto a excesos 
-        como a restricciones en la ingesta.
-    </p>
-    <p>
-        Respecto al entrenamiento, no se observa una relación directa entre entrenar o no 
-        y la cantidad de calorías consumidas: tanto los días con entrenamiento (●) como 
-        sin él (+) aparecen distribuidos a lo largo de todo el rango vertical.
-    </p>
-    <p>
-        La línea de tendencia muestra una disminución sostenida del consumo calórico hacia 
-        el final del período, independientemente del estado de ánimo o el entrenamiento, 
-        lo que podría reflejar una adaptación progresiva de los hábitos alimenticios.
-    </p>
-</div>
+                <div class="tag">Análisis de Situación</div>
+                <p>
+                    El gráfico de dispersión permite analizar la relación entre el entrenamiento, el estado de ánimo y el consumo calórico diario. Cada punto representa un día completo, revelando la variabilidad del comportamiento a lo largo del período.
+                </p>
+                <p>
+                    El hallazgo más notable es que los dos días con estado de ánimo negativo (Malo) presentan comportamientos opuestos: el valor máximo del período (3.170 cal el 16/04) y un valor cercano al mínimo (1.624 cal el 01/05). Esto sugiere que el estado de ánimo negativo no produce un patrón único, sino que puede asociarse tanto a excesos como a restricciones en la ingesta.
+                </p>
+                <p>
+                    Respecto al entrenamiento, no se observa una relación directa entre entrenar o no y la cantidad de calorías consumidas: tanto los días con entrenamiento (●) como sin él (+) aparecen distribuidos a lo largo de todo el rango vertical.
+                </p>
+                <p>
+                    La línea de tendencia muestra una disminución sostenida del consumo calórico hacia el final del período, independientemente del estado de ánimo o el entrenamiento, lo que podría reflejar una adaptación progresiva de los hábitos alimenticios.
+                </p>
+            </div>
         </section>
 
-        <!-- ═══════════════════════════════════════════════
-             GRÁFICO 4 — Tableau / PowerBI (placeholder)
-        ════════════════════════════════════════════════ -->
+        <!-- ═══════════════════════════════════════════════════════
+             SECCIÓN 4: Heatmap temporal (Tableau)
+        ═══════════════════════════════════════════════════════ -->
         <section data-num="04">
             <div class="section-tag">Tableau · Heatmap temporal</div>
             <h2>¿A qué horas del día consumo más calorías y cómo cambia según el tipo de entrenamiento?</h2>
 
             <p class="intro-text">
-                Mapa de calor que cruza la franja horaria de cada ingesta con el tipo de entrenamiento realizado ese día. La intensidad del color revela los momentos del día con mayor carga calórica según el contexto de actividad física.
+                Mapa de calor que cruza la franja horaria de cada ingesta con el tipo de entrenamiento realizado ese día. La intensidad del color revela los momentos del día con mayor carga calórica.
             </p>
 
             <div class="grafico-wrapper" style="min-height:480px; display:flex; align-items:center; justify-content:center;">
-                <!-- REEMPLAZAR CON EL EMBED DE TABLEAU -->
-                <p style="color:#aaa;font-size:.85rem;text-align:center;">[ Insertar aquí el embed de Tableau ]</p>
+                <p style="color:#aaa;font-size:.85rem;text-align:center;">
+                    [ Insertar aquí el embed de Tableau ]
+                </p>
             </div>
 
             <div class="conclusion">
@@ -366,6 +419,9 @@
 
     </div>
 
+    <!-- ═══════════════════════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════════════════════ -->
     <footer>
         <strong>Instituto Tecnológico de Buenos Aires (ITBA)</strong><br>
         Maestría en Ciencia de Datos · Visualización de la Información · 2025.B
