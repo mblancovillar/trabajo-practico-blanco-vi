@@ -398,29 +398,78 @@
         </section>
 
         <!-- ═══════════════════════════════════════════════════════
-             SECCIÓN 4: Heatmap temporal (Tableau)
-        ═══════════════════════════════════════════════════════ -->
-        <section data-num="04">
-            <div class="section-tag">Tableau · Heatmap temporal</div>
-            <h2>¿A qué horas del día consumo más calorías y cómo cambia según el tipo de entrenamiento?</h2>
+     SECCIÓN 4: Heatmap temporal (Tableau)
+════════════════════════════════════════════════════════ -->
+<section data-num="04">
+    <div class="section-tag">Tableau · Heatmap temporal</div>
 
-            <p class="intro-text">
-                Mapa de calor que cruza la franja horaria de cada ingesta con el tipo de entrenamiento realizado ese día. La intensidad del color revela los momentos del día con mayor carga calórica.
-            </p>
+    <h2>¿En qué franjas horarias se concentra el consumo calórico promedio según el tipo de entrenamiento realizado?</h2>
 
-            <div class="grafico-wrapper" style="min-height:480px; display:flex; align-items:center; justify-content:center;">
-                <p style="color:#aaa;font-size:.85rem;text-align:center;">
-                    [ Insertar aquí el embed de Tableau ]
-                </p>
-            </div>
+    <p class="intro-text">
+        El mapa de calor cruza las franjas horarias de las ingestas con el tipo de entrenamiento realizado.
+        La intensidad del color representa el consumo calórico promedio, permitiendo identificar en qué momentos
+        del día se concentra una mayor carga calórica.
+    </p>
 
-            <div class="conclusion">
-                <div class="tag">Análisis de Situación</div>
-                <p>[ Completar con el análisis una vez generado el gráfico en Tableau ]</p>
-            </div>
-        </section>
+    <div class="grafico-wrapper" style="min-height:620px; padding:12px; overflow:hidden;">
+        <div class='tableauPlaceholder' id='viz1777835531759' style='position: relative; width:100%;'>
+            <noscript>
+                <a href='#'>
+                    <img alt='¿En qué franjas horarias se concentra el consumo calórico promedio según el tipo de entrenamiento realizado?'
+                         src='https://public.tableau.com/static/images/Ta/Tableau-Calorias/Hoja1/1_rss.png'
+                         style='border: none; width:100%;' />
+                </a>
+            </noscript>
+            <object class='tableauViz' style='display:none;'>
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                <param name='embed_code_version' value='3' />
+                <param name='site_root' value='' />
+                <param name='name' value='Tableau-Calorias/Hoja1' />
+                <param name='tabs' value='no' />
+                <param name='toolbar' value='yes' />
+                <param name='static_image' value='https://public.tableau.com/static/images/Ta/Tableau-Calorias/Hoja1/1.png' />
+                <param name='animate_transition' value='yes' />
+                <param name='display_static_image' value='yes' />
+                <param name='display_spinner' value='yes' />
+                <param name='display_overlay' value='yes' />
+                <param name='display_count' value='yes' />
+                <param name='language' value='es-ES' />
+                <param name='filter' value='publish=yes' />
+            </object>
+        </div>
 
+        <script type='text/javascript'>
+            var divElement = document.getElementById('viz1777835531759');
+            var vizElement = divElement.getElementsByTagName('object')[0];
+            vizElement.style.width = '100%';
+            vizElement.style.height = (divElement.offsetWidth * 0.62) + 'px';
+
+            var scriptElement = document.createElement('script');
+            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
     </div>
+
+    <div class="conclusion">
+        <div class="tag">Análisis de Situación</div>
+        <p>
+            El mapa de calor permite analizar la distribución del consumo calórico promedio a lo largo del día
+            en función del tipo de entrenamiento realizado.
+        </p>
+        <p>
+            Se observa que las franjas de mediodía (12–15h) y noche (21–24h) concentran los mayores niveles de
+            consumo calórico promedio en la mayoría de los casos.
+        </p>
+        <p>
+            El valor más alto se registra en la franja de mediodía para el entrenamiento mixto, lo que evidencia
+            un caso puntual de mayor intensidad calórica dentro del período analizado.
+        </p>
+        <p>
+            En términos generales, el tipo de entrenamiento influye en la intensidad del consumo, pero no modifica
+            de manera significativa los momentos del día en los que se concentra la ingesta.
+        </p>
+    </div>
+</section>
 
     <!-- ═══════════════════════════════════════════════════════
          FOOTER
