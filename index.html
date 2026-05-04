@@ -126,6 +126,15 @@
             color: var(--text);
             font-weight: 500;
         }
+        .tableau-wrapper {
+            width: 100%;
+            min-height: 700px;
+        }
+
+        .tableauViz {
+            width: 100% !important;
+            height: 700px !important;
+        }
 
         /* ═══════════════════════════════════════════════════════
            SECCIONES
@@ -442,7 +451,7 @@
             var divElement = document.getElementById('viz1777835531759');
             var vizElement = divElement.getElementsByTagName('object')[0];
             vizElement.style.width = '100%';
-            vizElement.style.height = '700px';
+            vizElement.style.height = (divElement.offsetWidth * 0.62) + 'px';
 
             var scriptElement = document.createElement('script');
             scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
